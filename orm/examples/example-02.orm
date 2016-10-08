@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+	<orm:ORMModel id="_A8AB49CF-A249-4B6B-BDD0-68F780394F5A" Name="example-02">
+		<orm:Objects>
+			<orm:ValueType id="_AE4B6384-E06A-4793-A1F9-D893067D3E70" Name="CountryCode">
+				<orm:ConceptualDataType id="_378BC600-F409-496D-A6F0-15042897D99D" ref="_D727C954-79C7-4918-B440-DA4629C7A842" Scale="0" Length="0" />
+			</orm:ValueType>
+		</orm:Objects>
+		<orm:DataTypes>
+			<orm:FixedLengthTextDataType id="_D727C954-79C7-4918-B440-DA4629C7A842" />
+		</orm:DataTypes>
+		<orm:ReferenceModeKinds>
+			<orm:ReferenceModeKind id="_E3F4BCEB-25B6-4B6C-B5B0-6D56E2018413" FormatString="{1}" ReferenceModeType="General" />
+			<orm:ReferenceModeKind id="_308D3BA7-2BC6-4C1D-AB63-5407856E47E2" FormatString="{0}_{1}" ReferenceModeType="Popular" />
+			<orm:ReferenceModeKind id="_C8E0B4BC-7B6F-42A0-9C3D-138C3DC1ABA3" FormatString="{1}Value" ReferenceModeType="UnitBased" />
+		</orm:ReferenceModeKinds>
+	</orm:ORMModel>
+	<ormDiagram:ORMDiagram id="_87D34B34-63E8-4B3A-AB50-519351AB5A34" IsCompleteView="false" Name="example-02" BaseFontName="Tahoma" BaseFontSize="0.0972222238779068">
+		<ormDiagram:Shapes>
+			<ormDiagram:ObjectTypeShape id="_047F3191-E441-46DB-92E9-874F3060E413" IsExpanded="true" AbsoluteBounds="1.1554089883963274, 1.0833332935969033, 0.80305569887161254, 0.22950302660465241">
+				<ormDiagram:Subject ref="_AE4B6384-E06A-4793-A1F9-D893067D3E70" />
+			</ormDiagram:ObjectTypeShape>
+		</ormDiagram:Shapes>
+		<ormDiagram:Subject ref="_A8AB49CF-A249-4B6B-BDD0-68F780394F5A" />
+	</ormDiagram:ORMDiagram>
+</ormRoot:ORM2>
