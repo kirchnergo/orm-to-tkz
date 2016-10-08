@@ -34,15 +34,79 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ORM-Model-01.orm">
+    <None Include="example-01.orm">
       <Generator>ORMCustomTool</Generator>
-      <LastGenOutput>ORM-Model-01._ORMCustomToolReport.cs</LastGenOutput>
+      <LastGenOutput>example-01._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="all.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>all._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-02.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-02._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-03.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-03._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-04.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-04._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-05.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-05._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-06.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-06._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-07.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-07._ORMCustomToolReport.cs</LastGenOutput>
+    </None>
+    <None Include="example-08.orm">
+      <Generator>ORMCustomTool</Generator>
+      <LastGenOutput>example-08._ORMCustomToolReport.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ORM-Model-01._ORMCustomToolReport.cs">
+    <Compile Include="example-01._ORMCustomToolReport.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>ORM-Model-01.orm</DependentUpon>
+      <DependentUpon>example-01.orm</DependentUpon>
+    </Compile>
+    <Compile Include="all._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>all.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-02._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-02.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-03._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-03.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-04._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-04.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-05._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-05.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-06._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-06.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-07._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-07.orm</DependentUpon>
+    </Compile>
+    <Compile Include="example-08._ORMCustomToolReport.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>example-08.orm</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
