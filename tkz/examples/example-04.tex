@@ -1,0 +1,9 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Country) at (4,0) {Country\\(.code)};
+\plays (Person) edge node (r) [roles, unique = 1, label = below: was born in] {} (Country);
+\end{tikzpicture}

@@ -1,0 +1,14 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\newdimen\bardistance
+\bardistance=1.5pt
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Car) at (0,4) {Car\\(.Id)};
+\node[roles, label = below: \ormup{drives}, rotate=90] (r) at (0,2) {};
+\draw[uniqueness bar]  ($(r.south west)+(\bardistance,.5\bardistance)$) -- ($(r.south east)+(\bardistance,-.5 \bardistance)$) ;
+\plays (Person) edge (r);
+\plays (r) edge (Car);
+\end{tikzpicture}

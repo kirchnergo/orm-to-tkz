@@ -1,0 +1,8 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\begin{tikzpicture}
+\node[entity] (Person) at (1.5,0) {Person\\(.name)};
+\node[role, label = below: smokes] at (0,0) {} edge (Person);
+\end{tikzpicture}

@@ -1,0 +1,134 @@
+* Examples of tkz-orm
+
+#+Latex_Header: \usepackage{lmodern}
+** Global Settings
+
+#+begin_src latex :noweb-ref settings
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+#+end_src
+** Entities
+
+#+name: fig:example-01
+#+begin_src latex :file ./img/example-01.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-01.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] at (0,0) {Country\\(.code)};
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-01
+[[file:./img/example-01.pdf]]
+
+
+#+name: fig:example-02
+#+begin_src latex :file ./img/example-02.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-02.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[value] at (0,0) {CountryCode};
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-02
+[[file:./img/example-02.pdf]]
+
+** Predicates
+
+
+#+name: fig:example-03
+#+begin_src latex :file ./img/example-03.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-03.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] (Person) at (1.5,0) {Person\\(.name)};
+\node[role, label = below: smokes] at (0,0) {} edge (Person);
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-03
+[[file:./img/example-03.pdf]]
+
+
+#+name: fig:example-04
+#+begin_src latex :file ./img/example-04.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-04.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Country) at (4,0) {Country\\(.code)};
+\plays (Person) edge node (r) [roles, unique = 1, label = below: was born in] {} (Country);
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-04
+[[file:./img/example-04.pdf]]
+
+
+#+name: fig:example-05
+#+begin_src latex :file ./img/example-05.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-05.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Game) at (3,2) {Game\\(.name)};
+\node[entity] (Duration) at (6,0) {Country\\(Year:)};
+\node[roles = 3, unique = 1-2, label = below: \ldots played \ldots for \ldots] (r) at (3,0) {};
+\plays (Person) edge (r.west);
+\plays (r) edge (Game);
+\plays (r.east) edge (Duration);
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-05
+[[file:./img/example-05.pdf]]
+
+
+#+name: fig:example-06
+#+begin_src latex :file ./img/example-06.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-06.tex :noweb yes
+<<settings>>
+\newdimen\bardistance
+\bardistance=1.5pt
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Car) at (0,4) {Car\\(.Id)};
+\node[roles, label = below: \ormup{drives}, rotate=90] (r) at (0,2) {};
+\draw[uniqueness bar]  ($(r.south west)+(\bardistance,.5\bardistance)$) -- ($(r.south east)+(\bardistance,-.5 \bardistance)$) ;
+\plays (Person) edge (r);
+\plays (r) edge (Car);
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-06
+[[file:./img/example-06.pdf]]
+
+
+#+name: fig:example-07
+#+begin_src latex :file ./img/example-07.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-07.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] (Person) at (0,2.3) {Person\\(.name)};
+\node[roles, below=of Person, unique=1:-1, label = below: reports to/manages] (r) at (0,2) {};
+\plays (Person) to (r.one north) (Person) to (r.two north);
+\node[role name, at=(r.north east), anchor=south west] {[manager]};
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-07
+[[file:./img/example-07.pdf]]
+
+
+#+name: fig:example-08
+#+begin_src latex :file ./img/example-08.pdf :packages '(("" "tikz")) :border 1em :results raw :headers '("\\usepackage{tkz-orm}" "\\usepackage{lmodern}") :tangle ./examples/example-08.tex :noweb yes
+<<settings>>
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Company) at (6,0) {Company\\(.name)};
+\node[roles, unique=1-2, label = below: \ormleft{employs}] (r) at (3,0) {};
+\plays (Person) edge (r.west) (r.east) edge (Company);
+\node[role name, anchor=south east] at (r.north west) {[employee]};
+\node[role name, anchor=south west] at (r.north east) {[employer]};
+\end{tikzpicture}
+#+end_src
+
+#+RESULTS: fig:example-08
+[[file:./img/example-08.pdf]]
+

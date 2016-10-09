@@ -1,0 +1,10 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\begin{tikzpicture}
+\node[entity] (Person) at (0,2.3) {Person\\(.name)};
+\node[roles, below=of Person, unique=1:-1, label = below: reports to/manages] (r) at (0,2) {};
+\plays (Person) to (r.one north) (Person) to (r.two north);
+\node[role name, at=(r.north east), anchor=south west] {[manager]};
+\end{tikzpicture}

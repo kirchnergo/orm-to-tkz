@@ -1,0 +1,12 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Company) at (6,0) {Company\\(.name)};
+\node[roles, unique=1-2, label = below: \ormleft{employs}] (r) at (3,0) {};
+\plays (Person) edge (r.west) (r.east) edge (Company);
+\node[role name, anchor=south east] at (r.north west) {[employee]};
+\node[role name, anchor=south west] at (r.north east) {[employer]};
+\end{tikzpicture}

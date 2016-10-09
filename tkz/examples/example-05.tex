@@ -1,0 +1,13 @@
+\usetikzlibrary{positioning}
+\tikzset{every label/.style={ font=\sffamily }}
+\tikzset{every entity/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries }}
+\tikzset{every value/.style={ draw = blue!50!black, thick, font=\sffamily\bfseries  }}
+\begin{tikzpicture}
+\node[entity] (Person) at (0,0) {Person\\(.name)};
+\node[entity] (Game) at (3,2) {Game\\(.name)};
+\node[entity] (Duration) at (6,0) {Country\\(Year:)};
+\node[roles = 3, unique = 1-2, label = below: \ldots played \ldots for \ldots] (r) at (3,0) {};
+\plays (Person) edge (r.west);
+\plays (r) edge (Game);
+\plays (r.east) edge (Duration);
+\end{tikzpicture}
